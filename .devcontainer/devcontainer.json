@@ -18,7 +18,6 @@
     "containerEnv": {
         "UV_LINK_MODE": "copy",
         "UV_PROJECT_ENVIRONMENT": ".venv",
-        "UV_PYTHON": "3.12",
         "DISPLAY": ":1"
     },
     "forwardPorts": [
@@ -30,7 +29,8 @@
             "onAutoForward": "silent"
         }
     },
-    "postCreateCommand": "pip install --user uv && uv sync && uv run rfbrowser init chromium --with-deps",
+    "postCreateCommand": "python -m pip install --user uv && python -m uv sync && python -m uv run rfbrowser init chromium --with-deps",
+    "postStartCommand": "python -m uv sync",
     "customizations": {
         "vscode": {
             "extensions": [
