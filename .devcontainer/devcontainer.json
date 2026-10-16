@@ -1,0 +1,30 @@
+{
+    "name": "RF TodoMVC Demo",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        }
+    },
+    "containerEnv": {
+        "UV_LINK_MODE": "copy",
+        "UV_PROJECT_ENVIRONMENT": ".venv"
+    },
+    "postCreateCommand": "pip install --user uv && uv sync && uv run rfbrowser init chromium --with-deps",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "d-biehl.robotcode",
+                "ms-python.python"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python",
+                "python.terminal.activateEnvironment": true,
+                "robotcode.robot.args": [
+                    "--outputdir",
+                    "results"
+                ]
+            }
+        }
+    }
+}
