@@ -38,7 +38,6 @@
                 "ms-python.python"
             ],
             "settings": {
-                "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python",
                 "python.terminal.activateEnvironment": true,
                 "robotcode.robot.args": [
                     "--outputdir",
