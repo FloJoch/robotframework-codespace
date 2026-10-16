@@ -4,11 +4,31 @@
     "features": {
         "ghcr.io/devcontainers/features/node:1": {
             "version": "lts"
+        },
+        "ghcr.io/devcontainers/features/desktop-lite:1": {
+            "password": "vscode"
         }
     },
+    "hostRequirements": {
+        "cpus": 4
+    },
+    "runArgs": [
+        "--shm-size=1g"
+    ],
     "containerEnv": {
         "UV_LINK_MODE": "copy",
-        "UV_PROJECT_ENVIRONMENT": ".venv"
+        "UV_PROJECT_ENVIRONMENT": ".venv",
+        "UV_PYTHON": "3.12",
+        "DISPLAY": ":1"
+    },
+    "forwardPorts": [
+        6080
+    ],
+    "portsAttributes": {
+        "6080": {
+            "label": "Desktop (noVNC)",
+            "onAutoForward": "silent"
+        }
     },
     "postCreateCommand": "pip install --user uv && uv sync && uv run rfbrowser init chromium --with-deps",
     "customizations": {
