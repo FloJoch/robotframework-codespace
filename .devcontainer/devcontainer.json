@@ -7,7 +7,8 @@
         },
         "ghcr.io/devcontainers/features/desktop-lite:1": {
             "password": "vscode"
-        }
+        },
+        "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
     },
     "hostRequirements": {
         "cpus": 4
@@ -35,7 +36,9 @@
         "vscode": {
             "extensions": [
                 "d-biehl.robotcode",
-                "ms-python.python"
+                "ms-python.python",
+                "makrocode.rfEssentials",
+                "anthropic.claude-code"
             ],
             "settings": {
                 "python.terminal.activateEnvironment": true,
